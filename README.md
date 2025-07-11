@@ -1,6 +1,6 @@
 # Car Rental Admin Dashboard
 
-A comprehensive Next.js 15+ application for managing car rental listings with authentication, CRUD operations, and audit trails.
+Application for managing car rental listings with authentication, CRUD operations, and audit trails.
 
 ## Features
 
