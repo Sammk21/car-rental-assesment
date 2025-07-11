@@ -1,37 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Car Rental Admin Dashboard
+
+A comprehensive Next.js 15+ application for managing car rental listings with authentication, CRUD operations, and audit trails.
+
+## Features
+
+- **Authentication**: Secure login/logout with JWT tokens
+- **Dashboard**: Paginated listings table with filtering and search
+- **CRUD Operations**: Approve, reject, and edit listings
+- **Audit Trail**: Track all administrative actions
+- **Responsive Design**: Mobile-friendly interface with Tailwind CSS
+- **SQLite Database**: Local database with automatic seeding
+- **Server-Side Rendering**: Optimized performance with SSR
+
+## Tech Stack
+
+- **Next.js 15+** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **SQLite** for database
+- **JWT** for authentication
+- **Lucide React** for icons
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Access the application:**
+   - Open [http://localhost:3000](http://localhost:3000)
+   - Login with default credentials: `admin` / `admin123`
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/                 # API routes
+│   ├── dashboard/           # Dashboard pages
+│   ├── login/              # Login page
+│   └── layout.tsx          # Root layout
+├── components/             # Reusable components
+├── context/               # React Context providers
+├── lib/                   # Utilities and database
+└── types/                 # TypeScript types
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Database Schema
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application uses SQLite with three main tables:
+- `listings`: Car rental listings
+- `users`: Admin users
+- `audit_logs`: Action tracking
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features Implemented
 
-## Learn More
+### Core Features
+-  Login page with authentication
+-  Dashboard with paginated listings table
+-  Approve/Reject/Edit actions
+-  Edit form with pre-filled data
+-  Next.js API routes for backend logic
+-  Server-side rendering for dashboard
+-  Route protection with middleware
+-  React Context for notifications
+-  Tailwind CSS styling
 
-To learn more about Next.js, take a look at the following resources:
+### Stretch Goals
+-  Filtering by listing status
+-  Search functionality
+-  Audit trail/logging view
+-  Performance optimizations
+-  Responsive design
+-  Error handling and notifications
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `POST /api/auth/login` - User authentication
+- `POST /api/auth/logout` - User logout
+- `PUT /api/listings/[id]` - Update listing
+- `POST /api/listings/[id]/approve` - Approve listing
+- `POST /api/listings/[id]/reject` - Reject listing
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application is ready for deployment on Vercel or any Node.js hosting platform. The SQLite database file will be created automatically on first run.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# car-rental-assesment
+## Security Features
+
+- JWT-based authentication
+- Password hashing with bcrypt
+- Route protection middleware
+- Input validation
+- CSRF protection with SameSite cookies
+
+## Performance Optimizations
+
+- Server-side rendering for initial page load
+- Efficient database queries with pagination
+- Optimized re-renders listing
+- Image lazy loading and error handling
+- Minimal bundle size with tree shaking
